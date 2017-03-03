@@ -1,0 +1,134 @@
+body, html {
+  font-family: 'Ubuntu', Helvetica, sans-serif;
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ddd;
+}
+
+button {
+  font-family: 'Ubuntu', Helvetica, sans-serif;
+  font-size: 1em;
+  border: 0;
+  outline: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  max-height: 100%;
+  height: 100%;
+}
+
+.keys {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 2em;
+}
+
+.key {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 8em;
+
+  height: 8em;
+  margin: .75em;
+  padding: .25em;
+  position: relative;
+  border-radius: 50%;
+  background: #777;
+  color: #fff;
+
+  -webkit-transition: background-color 0.1s;
+	transition: background-color 0.1s;
+}
+
+.key::before {
+	content: '';
+	position: absolute;
+	top: -2em;
+	left: -2em;
+	bottom: -2em;
+	right: -2em;
+	background: inherit;
+	border-radius: 50%;
+	z-index: -1;
+	opacity: 0.4;
+	-webkit-transform: scale3d(0.5, 0.5, 1);
+	transform: scale3d(0.5, 0.5, 1);
+}
+
+.key.playing {
+	-webkit-transition: background-color 0.03s 0.1s;
+	transition: background-color 0.03s 0.1s;
+	background-color: #4B0082;
+	-webkit-animation: hit-animation 0.1s forwards;
+	animation: hit-animation 0.1s forwards;
+}
+
+.key.playing::before {
+	-webkit-animation: shadow-animation 0.05s 0.05s forwards;
+	animation: shadow-animation 0.05s 0.05s forwards;
+}
+
+kbd {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 3em;
+}
+
+.sound {
+  text-transform: uppercase;
+}
+
+/*
+ * Inspiration from Codrops
+ * https://tympanus.net/Development/ButtonStylesInspiration/
+ */
+
+@-webkit-keyframes hit-animation {
+	60% {
+		-webkit-transform: scale3d(0.8, 0.8, 1);
+		transform: scale3d(0.8, 0.8, 1);
+	}
+	85% {
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.1, 1.1, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes hit-animation {
+	60% {
+		-webkit-transform: scale3d(0.8, 0.8, 1);
+		transform: scale3d(0.8, 0.8, 1);
+	}
+	85% {
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.1, 1.1, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+@-webkit-keyframes shadow-animation {
+	to {
+		opacity: 0;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes shadow-animation {
+	to {
+		opacity: 0;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
