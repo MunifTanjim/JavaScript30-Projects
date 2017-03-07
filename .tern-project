@@ -1,12 +1,10 @@
 {
-  "ecmaVersion": "5",
+  "ecmaVersion": "6",
   "libs": [
     "browser"
   ],
   "loadEagerly": [],
-  "dontLoad": [
-    "node_module/**"
-  ],
+  "dontLoad": [],
   "plugins": {
     "doc_comment": true,
     "node": {
